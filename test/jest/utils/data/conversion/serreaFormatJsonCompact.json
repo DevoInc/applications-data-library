@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "type": "json/compact",
+  "status": 0,
+  "msg": null,
+  "object": {
+    "d": [[0]],
+    "m": {"count": {"type": "float8", "index": 0}}
+  }
+}

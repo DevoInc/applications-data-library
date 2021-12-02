@@ -1,0 +1,69 @@
+{
+    "plugins": [
+    ],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "globalReturn": true,
+        "jsx": true,
+        "modules": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "amd": true,
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "globals": {
+      "document": false,
+      "escape": false,
+      "navigator": false,
+      "unescape": false,
+      "window": false,
+      "describe": true,
+      "before": true,
+      "it": true,
+      "expect": true,
+      "sinon": true,
+      "ReactDOM": true,
+      "React" : true,
+      "Intl" : true,
+      "lt": true,
+      "requesito": true,
+      "moment": true,
+      "Highcharts": true,
+      "$": true,
+      "baseWeb": true
+    },
+    "rules": {
+      "comma-dangle": 1,
+
+      # Warning on lines of more than 80 characters
+      "max-len": [1, { "ignoreComments": true }],
+
+      # Warning if no single quotes are used
+      # Allow literals for use string tempalte without variable in case we need
+      # to break lines easily or escape single quotes without escape char
+      "quotes": [1, "single", { "allowTemplateLiterals": true }],
+
+      # Warning if no semicolon at the of a sentence
+      "semi": [1, "always"],
+
+      "no-undef": 1,
+      "global-strict": 0,
+
+      # Avoid extra colons at the end of a sentence (ex. a = 5;;)
+      "no-extra-semi": 1,
+
+      "no-underscore-dangle": 0,
+      "no-console": 0,
+      "no-unused-vars": 1,
+      "no-trailing-spaces": [1, { "skipBlankLines": true }],
+      "no-unreachable": 1,
+      "no-alert": 0,
+      "indent": [1, 2, { "SwitchCase": 1 }]
+    }
+  }

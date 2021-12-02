@@ -1,0 +1,39 @@
+{
+  "name": "@devo/applications-data-library",
+  "version": "1.0.0",
+  "description": "Devo Applications Data Library",
+  "author": "Devo desa@devo.com",
+  "private": false,
+  "license": "UNLICENSED",
+  "homepage": "https://www.devo.com",
+  "engines": {
+    "node": "*",
+    "npm": "*",
+    "yarn": "*"
+  },
+  "bugs": {
+    "url": "",
+    "email": "desa@devo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.devo.internal/vapps/wida"
+  },
+  "dependencies": {
+    "@devo/browser-sdk": "^1.2.4",
+    "crypto-js": "^3.3.0",
+    "fetch": "^1.1.0",
+    "json-loader": "^0.5.7",
+    "moment": "^2.27.0",
+    "nock": "^10.0.6",
+    "oboe": "2.1.3"
+  },
+  "contributors": [
+    "Desarrollo Devo desa@devo.com"
+  ],
+  "keywords": [
+    "widgets",
+    "data",
+    "utils"
+  ]
+}

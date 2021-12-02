@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "type": "json",
+  "status": 0,
+  "msg": null,
+  "object": [
+    { "col1":"v11", "col2":"v12" },
+    { "col1":"v21", "col2":"v22" }
+  ]
+}

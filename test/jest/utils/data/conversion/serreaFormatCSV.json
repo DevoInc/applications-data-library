@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "type": "csv",
+  "status": 0,
+  "msg": null,
+  "object": ["srcip4\n10.12.115.71\n10.16.50.165\n208.118.237.69\n"]
+}

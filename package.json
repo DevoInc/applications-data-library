@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "cp -f package.json ./src/ && sed -i '/\"build\"/d' ./src/package.json && sed -i '/\"scripts\"/,/},/d' ./src/package.json && sed -i '/\"devDependencies\"/,/},/d' ./src/package.json",
-    "publish": "npm run build && cd src && npm publish && cd ..",
+    "publish": "npm run build && cd src && npm publish --access public && cd ..",
     "prepare": "npm run selflink",
     "test": "jest --coverage --config './jest.config.js'",
     "test-watch": "jest --watch --config './jest.config.js'",

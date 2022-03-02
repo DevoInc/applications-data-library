@@ -1,6 +1,6 @@
 {
   "name": "@devo/applications-data-library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Devo Applications Data Library",
   "author": "Devo desa@devo.com",
   "private": false,
@@ -16,7 +16,7 @@
     "email": "desa@devo.com"
   },
   "scripts": {
-    "build": "cp -f package.json ./src/ && sed -i '/\"build\"/d' ./src/package.json && sed -i '/\"scripts\"/,/},/d' ./src/package.json && sed -i '/\"devDependencies\"/,/},/d' ./src/package.json",
+    "build": "cat package.json | sed '/\"build\"/d' | sed  '/\"scripts\"/,/},/d' | sed '/\"devDependencies\"/,/},/d' > ./src/package.json",
     "publish": "npm run build && cd src && npm publish --access public && cd ..",
     "prepare": "npm run selflink",
     "test": "jest --coverage --config './jest.config.js'",
@@ -31,8 +31,8 @@
     "url": "https://github.com/DevoInc/applications-data-library"
   },
   "dependencies": {
-    "@devo/browser-sdk": "^1.2.4",
-    "crypto-js": "^3.3.0",
+    "@devo/browser-sdk": "^1.3.3",
+    "crypto-js": "^4.1.1",
     "fetch": "^1.1.0",
     "json-loader": "^0.5.7",
     "moment": "^2.27.0",
@@ -61,7 +61,7 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.3.0",
     "karma-jasmine": "^2.0.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment-timezone": "^0.5.31",
     "regenerator-runtime": "^0.13.7",
     "xhr-mock": "^2.5.1"

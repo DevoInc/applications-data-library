@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.3 (2022-04-07)
+
+### Patch
+
+- Updated version of moment package from 2.27.0 to 2.29.2 to fix vulnerabilities
+
 ## 1.0.2 (2022-03-01)
 
 ### Patch

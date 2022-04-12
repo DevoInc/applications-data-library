@@ -1,29 +1,29 @@
 # Devo Applications Data Library
 
-This library links the charts created in the Devo platform with applications 
-using the Devo Query API. It also allows for the retrieval of data from an 
+This library links the charts created in the Devo platform with applications
+using the Devo Query API. It also allows for the retrieval of data from an
 external source.
 
-The library provides classes that prepare and allow requests to the tables according to 
-the indicated query, domain, and logged-in user. When 
-later obtaining the data, it returns the necessary data structure for the widget 
+The library provides classes that prepare and allow requests to the tables according to
+the indicated query, domain, and logged-in user. When
+later obtaining the data, it returns the necessary data structure for the widget
 in question.
 
-The idea is to use this library as a complementary tool when working with the Devo 
+The idea is to use this library as a complementary tool when working with the Devo
 Applications Builder.
 
 Check out our [documentation](doc/index.md) for more information.
 
 ## Requirements
 
-- Node >= 8.0.0
-- npm >= 6.0.0
+- Node 14
+- npm 7
 - Devo account
 
 ## Installation
 
-If you want to install this library locally for testing and development 
-purposes, you must download the Devo Applications Builder and install 
+If you want to install this library locally for testing and development
+purposes, you must download the Devo Applications Builder and install
 it locally. Once installed, follow the steps below:
 
 Install the library

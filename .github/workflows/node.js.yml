@@ -46,6 +46,3 @@ jobs:
         with:
           name: test-results
           path: coverage/*
-
-      - name: Generate documentation
-        run: npm run docs

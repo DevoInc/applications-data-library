@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 
-import processStructure from '@devo/applications-data-library/structures/flameGraph';
+import processStructure from '@devoinc/applications-data-library/structures/flameGraph';
 
 describe('Flame graph data structure: ', () => {
   describe('processFromGraph test', () => {

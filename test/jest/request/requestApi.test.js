@@ -1,9 +1,9 @@
 import '@babel/polyfill';
 
-import RequestApi from '@devo/applications-data-library/requests/RequestApi';
-import user from '@devo/applications-data-library/utils/user';
+import RequestApi from '@devoinc/applications-data-library/requests/RequestApi';
+import user from '@devoinc/applications-data-library/utils/user';
 import { fn } from 'moment';
-jest.mock('@devo/applications-data-library/utils/user');
+jest.mock('@devoinc/applications-data-library/utils/user');
 import xhrMock from 'xhr-mock';
 import moment from 'moment-timezone';
 const fs = require('fs');

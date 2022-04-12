@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 
-import processStructure from '@devo/applications-data-library/structures/voronoi';
+import processStructure from '@devoinc/applications-data-library/structures/voronoi';
 
 /**
  * This test check the voronoi structure

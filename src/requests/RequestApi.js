@@ -1,7 +1,7 @@
 import Request from './Request';
-import user from '@devo/applications-data-library/utils/user';
+import user from '@devoinc/applications-data-library/utils/user';
 import HmacSHA256 from 'crypto-js/hmac-sha256';
-import { addPragmas } from '@devo/applications-data-library/utils/request';
+import { addPragmas } from '@devoinc/applications-data-library/utils/request';
 import { client } from '@devo/browser-sdk';
 
 /**

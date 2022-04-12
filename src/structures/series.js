@@ -1,5 +1,5 @@
-import dm from '@devo/applications-data-library/libs/dataMatrix';
-import time from '@devo/applications-data-library/utils/time';
+import dm from '@devoinc/applications-data-library/libs/dataMatrix';
+import time from '@devoinc/applications-data-library/utils/time';
 
 /**
  * Default function for parse dataMatrix to highchart series

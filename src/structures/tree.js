@@ -1,4 +1,4 @@
-import dm from '@devo/applications-data-library/libs/dataMatrix';
+import dm from '@devoinc/applications-data-library/libs/dataMatrix';
 
 export default (data, keys, value) => {
   var ret = {

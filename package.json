@@ -1,6 +1,6 @@
 {
-  "name": "@devo/applications-data-library",
-  "version": "1.0.4",
+  "name": "@devoinc/applications-data-library",
+  "version": "2.0.0",
   "description": "Devo Applications Data Library",
   "author": "Devo desa@devo.com",
   "private": false,

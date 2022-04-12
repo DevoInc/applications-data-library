@@ -39,6 +39,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
+    "@babel/eslint-parser": "^7.17.0",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
@@ -48,7 +49,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "benchmark": "^2.1.4",
-    "eslint": "^5.14.1",
+    "eslint": "^8.13.0",
     "generate-changelog": "^1.7.1",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^2.1.1",

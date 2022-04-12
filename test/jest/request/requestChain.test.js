@@ -1,11 +1,11 @@
 import '@babel/polyfill';
 
-import RequestApi from '@devo/applications-data-library/requests/RequestApi';
+import RequestApi from '@devoinc/applications-data-library/requests/RequestApi';
 
-import RequestChain from '@devo/applications-data-library/requests/RequestChain';
+import RequestChain from '@devoinc/applications-data-library/requests/RequestChain';
 import mock from 'xhr-mock';
-import user from '@devo/applications-data-library/utils/user';
-jest.mock('@devo/applications-data-library/utils/user');
+import user from '@devoinc/applications-data-library/utils/user';
+jest.mock('@devoinc/applications-data-library/utils/user');
 import moment from 'moment-timezone';
 global.moment = moment;
 const fs = require('fs');

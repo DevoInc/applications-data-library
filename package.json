@@ -1,6 +1,6 @@
 {
   "name": "@devoinc/applications-data-library",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Devo Applications Data Library",
   "author": "Devo desa@devo.com",
   "private": false,
@@ -20,7 +20,7 @@
     "prepare": "npm run selflink",
     "test": "jest --coverage --config './jest.config.js'",
     "test-watch": "jest --watch --config './jest.config.js'",
-    "selflink": "cd node_modules && ln -snf ../../src @devo/applications-data-library",
+    "selflink": "cd node_modules && mkdir @devoinc && ln -snf ../../src @devoinc/applications-data-library",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "eslint-test": "./node_modules/.bin/eslint test/**/*.js",
     "benchmark": "./node_modules/karma/bin/karma start test/karma.conf.js"

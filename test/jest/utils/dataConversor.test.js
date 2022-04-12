@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 
-import dataConversor from '@devo/applications-data-library/utils/dataConversor';
+import dataConversor from '@devoinc/applications-data-library/utils/dataConversor';
 
 /**
  * This test check dataConversion process

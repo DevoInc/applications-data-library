@@ -1,8 +1,8 @@
 import '@babel/polyfill';
 
-import processStructure from '@devo/applications-data-library/structures/series';
+import processStructure from '../.././../src/structures/series';
 import moment from 'moment-timezone';
-jest.mock('@devo/applications-data-library/utils/user');
+jest.mock('../.././../src/utils/user');
 global.moment = moment;
 
 /**

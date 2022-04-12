@@ -2,7 +2,7 @@
  * @module utils/time
  */
 
-import user from '@devo/applications-data-library/utils/user';
+import user from '@devoinc/applications-data-library/utils/user';
 
 const ms = 1000;
 const units = { s: ms, m: 60 * ms, h: 60 * 60 * ms, d: 24 * 60 * 60 * ms };

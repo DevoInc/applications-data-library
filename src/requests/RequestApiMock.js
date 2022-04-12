@@ -1,4 +1,4 @@
-import Request from '@devo/applications-data-library/requests/Request';
+import Request from '@devoinc/applications-data-library/requests/Request';
 /**
  * @class requests/RequestApiMock
  * @params

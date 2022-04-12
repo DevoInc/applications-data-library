@@ -43,5 +43,5 @@ Link the library with Devo Applications Builder
 
 ```shell
 > cd /path/to/devo-applications-builder
-> npm link @devo/applications-data-library
+> npm link @devoinc/applications-data-library
 ```

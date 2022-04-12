@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 
-import processStructure from '@devo/applications-data-library/structures/tree';
+import processStructure from '@devoinc/applications-data-library/structures/tree';
 
 /**
  * This test check the tree structure

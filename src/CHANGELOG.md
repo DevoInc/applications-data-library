@@ -2,13 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.1 (2022-04-12)
+
+Fixing internals import
+
 ## 2.0.0 (2022-04-12)
 
 Move package scope from @devo to @devoinc
-
-### Patch
-
-- Removed unused packages
 
 ## 1.0.4 (2022-04-08)
 

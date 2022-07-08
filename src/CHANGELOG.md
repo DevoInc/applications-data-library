@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.2
+
+updated dependencies to fixed vulnerabilities:
+
+- https://security.snyk.io/vuln/SNYK-JS-MOMENT-2944238 : updated moment from 2.29.2 to 2.29.4
+- https://security.snyk.io/vuln/SNYK-JS-ASYNC-2441827 : updated async updated moment from 2.6.3 to 2.6.4
+- https://snyk.io/test/npm/node-fetch/2.6.1 : updated cross-fetch updated moment from 2.2.5 to 2.2.6
+
 ## 2.0.1 (2022-04-12)
 
 Fixing internals import

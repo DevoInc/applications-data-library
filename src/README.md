@@ -1,3 +1,11 @@
+# 🚨 Deprecated 🚨
+
+This package has been deprecated in favor of `DevoInc/App-Developer-Kit`.
+
+Therefore, this repository will serve as archive and will be no longer supported.
+
+You can access the new project repository here: https://github.com/DevoInc/App-Developer-Kit
+
 # Devo Applications Data Library
 
 This library links the charts created in the Devo platform with applications

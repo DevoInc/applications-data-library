@@ -16,7 +16,6 @@ export function  addPragmas (query, componentId, vault, application) {
     pragma comment.source: ${JSON.stringify(query)}
     ${lt.app ? `pragma comment.free:"${lt.app.appId}"` : ''}
     `.trim().replace(/^\s*\n/gm, '');
-
 }
 
 

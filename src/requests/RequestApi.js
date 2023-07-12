@@ -75,7 +75,7 @@ export class RequestApi extends Request {
           this.stream = this.client.stream(
             {
               query: this.query
-                ? addPragmas(this.query, this.componentId, this.vault)
+                ? addPragmas(this.query, this.componentId, this.vault, this.application)
                 : null,
               queryId: this.queryId ? this.queryId : null,
               timestamp: moment().valueOf(),
@@ -162,7 +162,7 @@ export class RequestApi extends Request {
     return {
       from: this.dates.from / 1000,
       to: this.dates.to / 1000,
-      query: this.query ? addPragmas(this.query, this.componentId) : null,
+      query: this.query ? addPragmas(this.query, this.componentId, null, this.application) : null,
       queryId: this.queryId ? this.queryId : null,
       limit: this.limit ? this.limit : null,
       mode: { type: this.serrea_format },

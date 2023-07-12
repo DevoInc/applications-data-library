@@ -1,11 +1,12 @@
 import user from '../utils/user';
 
-export function  addPragmas (query, componentId, vault) {
+export function  addPragmas (query, componentId, vault, application) {
   let env = window.location.hostname.split('.')[0];
   let clone = env.split('pre')[1];
+  let queryApp = application ? application : baseWeb.pageManager.currentPage;
   return `${query}
     pragma proc.vault.name: "${vault || user.getVault().name}"
-    pragma comment.application: "${baseWeb.pageManager.currentPage}"
+    pragma comment.application: "${queryApp}"
     pragma comment.component: "${componentId || ''}"
     pragma comment.user: "${user.getName()}"
     pragma comment.email: "${user.getEmail()}"

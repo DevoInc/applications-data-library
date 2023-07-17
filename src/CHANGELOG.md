@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.3
+
+Add pragma "application" in the queries
+
 ## 2.0.2
 
 updated dependencies to fixed vulnerabilities:

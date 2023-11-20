@@ -20,7 +20,7 @@
     "prepare": "npm run selflink",
     "test": "jest --coverage --config './jest.config.js'",
     "test-watch": "jest --watch --config './jest.config.js'",
-    "selflink": "cd node_modules && mkdir @devoinc && ln -snf ../../src @devoinc/applications-data-library",
+    "selflink": "cd node_modules && mkdir -p @devoinc && ln -snf ../../src @devoinc/applications-data-library",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "eslint-test": "./node_modules/.bin/eslint test/**/*.js",
     "benchmark": "./node_modules/karma/bin/karma start test/karma.conf.js"
@@ -30,7 +30,7 @@
     "url": "https://github.com/DevoInc/applications-data-library"
   },
   "dependencies": {
-    "@devo/browser-sdk": "^1.3.3",
+    "@devoinc/browser-sdk": "^3.1.5",
     "crypto-js": "^4.2.0",
     "fetch": "^1.1.0",
     "json-loader": "^0.5.7",
@@ -64,9 +64,7 @@
     "regenerator-runtime": "^0.13.7",
     "xhr-mock": "^2.5.1"
   },
-  "overrides": {
-    "crypto-js": "^4.2.0"
-  },
+
   "contributors": [
     "Desarrollo Devo desa@devo.com"
   ],

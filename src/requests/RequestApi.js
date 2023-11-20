@@ -2,7 +2,7 @@ import Request from './Request';
 import user from '@devoinc/applications-data-library/utils/user';
 import HmacSHA256 from 'crypto-js/hmac-sha256';
 import { addPragmas } from '@devoinc/applications-data-library/utils/request';
-import { client } from '@devo/browser-sdk';
+import { client } from '@devoinc/browser-sdk';
 
 /**
  * @class requests/RequestSerrea
@@ -72,7 +72,7 @@ export class RequestApi extends Request {
             },
           };
 
-          this.stream = this.client.stream(
+          this.stream = this.client.streamFetch(
             {
               query: this.query
                 ? addPragmas(this.query, this.componentId, this.vault, this.application)

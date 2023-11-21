@@ -1,13 +1,13 @@
 import '@babel/polyfill';
 
 import RequestApi from '@devoinc/applications-data-library/requests/RequestApi';
-import user from '@devoinc/applications-data-library/utils/user';
-import { fn } from 'moment';
 jest.mock('@devoinc/applications-data-library/utils/user');
-import xhrMock from 'xhr-mock';
 import moment from 'moment-timezone';
-const fs = require('fs');
 global.moment = moment;
+const streamFetch = require('../../../node_modules/@devoinc/browser-sdk/lib/fetchStreamReadable/fetchStreamReadable.js');
+
+let spyStreamFetch;
+
 
 describe('API Request:', () => {
   global.fetch = require('jest-fetch-mock');
@@ -20,6 +20,22 @@ describe('API Request:', () => {
     }`,
     { headers: { 'content-type': 'json' } }
   );
+
+  beforeEach(() => {
+    spyStreamFetch = jest.spyOn(streamFetch, 'create')
+      .mockImplementation(    () => {return{
+
+        stream: (opc, callbacks) => {
+          callbacks.done();
+        }
+   
+      };}
+      );
+  });
+
+  afterEach(() => {
+    spyStreamFetch.mockRestore();
+  });
 
   it('Should exist', () => {
     expect(RequestApi).toBeDefined();
@@ -39,8 +55,8 @@ describe('API Request:', () => {
       searchTemplate: `searchtemplate`,
       dates: {
         from: 1,
-        to: 2,
-      },
+        to: 2
+      }
     });
     expect(req).toBeDefined();
     expect(req.template).toBe('template');
@@ -59,19 +75,10 @@ describe('API Request:', () => {
           select count() as count`,
       dates: {
         from: 1000,
-        to: 2000,
-      },
+        to: 2000
+      }
     });
-    req.client.stream = require('jest-fetch-mock');
-    req.client.stream.mockResponse(
-      `{
-      "success":true,
-      "status":0,
-      "msg":"valid request",
-      "object":[]
-      }`,
-      { headers: { 'content-type': 'json' } }
-    );
+
     const query = `from proxy.zscaler.access
           group by hostname, clientIP, user
           select count() as count
@@ -92,7 +99,7 @@ describe('API Request:', () => {
       query: query,
       queryId: null,
       limit: null,
-      to: 2,
+      to: 2
     });
   });
 
@@ -104,10 +111,10 @@ describe('API Request:', () => {
           select count() as count`,
       dates: {
         from: 1000,
-        to: 2000,
+        to: 2000
       },
       queryId: null,
-      limit: null,
+      limit: null
     });
     const spy = jest.spyOn(req, 'processResponse');
     await req
@@ -128,10 +135,10 @@ describe('API Request:', () => {
           select count() as count`,
       dates: {
         from: 1000,
-        to: 2000,
+        to: 2000
       },
       queryId: null,
-      limit: null,
+      limit: null
     });
     const spy = jest.spyOn(req, 'processResponse');
 
@@ -155,7 +162,7 @@ describe('API Request:', () => {
       template: `template`,
       searchTemplate: `searchtemplate`,
       apiKey: 'ABC',
-      apiSecret: 'CDE',
+      apiSecret: 'CDE'
     });
     expect(req).toBeDefined();
     expect(req.template).toBe('template');

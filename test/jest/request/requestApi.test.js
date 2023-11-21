@@ -1,12 +1,8 @@
 import '@babel/polyfill';
 
 import RequestApi from '@devoinc/applications-data-library/requests/RequestApi';
-import user from '@devoinc/applications-data-library/utils/user';
-import { fn } from 'moment';
 jest.mock('@devoinc/applications-data-library/utils/user');
-import xhrMock from 'xhr-mock';
 import moment from 'moment-timezone';
-const fs = require('fs');
 global.moment = moment;
 const streamFetch = require('../../../node_modules/@devoinc/browser-sdk/lib/fetchStreamReadable/fetchStreamReadable.js');
 
@@ -30,7 +26,6 @@ describe('API Request:', () => {
       .mockImplementation(    () => {return{
 
         stream: (opc, callbacks) => {
-          console.log('stream1');
           callbacks.done();
         }
    

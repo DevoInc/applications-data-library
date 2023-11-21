@@ -11,7 +11,7 @@ import { client } from '@devoinc/browser-sdk';
 export class RequestApi extends Request {
   constructor(options = {}) {
     super(options);
-    this.type = options.format || 'json/compact';
+    this.type = options.format || 'json/simple/compact';
     this._currentReq = {};
     // Check dates
     let now = Date.now();
@@ -40,7 +40,7 @@ export class RequestApi extends Request {
     this.client = client(
       {
         url: options.url || serrea,
-        ...credentials,
+        ...credentials
       },
       this.type
     );
@@ -68,8 +68,8 @@ export class RequestApi extends Request {
             cid: null,
             object: {
               m: {},
-              d: [],
-            },
+              d: []
+            }
           };
 
           this.stream = this.client.streamFetch(
@@ -81,16 +81,16 @@ export class RequestApi extends Request {
               timestamp: moment().valueOf(),
               dateFrom: this.dates.from,
               dateTo: this.dates.to,
-              format: this.type || 'json/compact',
+              format: this.type || 'json/simple/compact',
               limit: this.limit ? this.limit : null,
-              ipAsString: this.ipAsString || false,
+              ipAsString: this.ipAsString || false
             },
             {
               meta: (headers) => {
                 this._currentReq[hash].object.m = headers;
               },
               data: (data) => {
-                this._currentReq[hash].object.d.push(data);
+                this._currentReq[hash].object.d.push(...data);
               },
               error: (error) => {
                 this.status = 'error';
@@ -106,7 +106,7 @@ export class RequestApi extends Request {
                         this.stream = null;
                         let response = this.processResponse(append, {
                           msg: error,
-                          status: 500,
+                          status: 500
                         });
                         resolve(Promise.resolve(Object.assign({}, response)));
                       }
@@ -130,7 +130,7 @@ export class RequestApi extends Request {
                 delete this._currentReq[hash];
                 this.stream = null;
                 resolve(Promise.resolve(Object.assign({}, response)));
-              },
+              }
             }
           );
         }
@@ -165,7 +165,7 @@ export class RequestApi extends Request {
       query: this.query ? addPragmas(this.query, this.componentId, null, this.application) : null,
       queryId: this.queryId ? this.queryId : null,
       limit: this.limit ? this.limit : null,
-      mode: { type: this.serrea_format },
+      mode: { type: this.serrea_format }
     };
   }
 
@@ -180,9 +180,9 @@ export class RequestApi extends Request {
           type: this.type,
           dates: {
             from: this.payload.dateFrom || this.payload.from,
-            to: this.payload.dateTo || this.payload.to,
+            to: this.payload.dateTo || this.payload.to
           },
-          query: this.payload.query,
+          query: this.payload.query
         })
       )
     );
@@ -209,7 +209,7 @@ export class RequestApi extends Request {
         status: 0,
         cid: null,
         object: [result],
-        success: true,
+        success: true
       };
     }
     const reqString = this.toString();
@@ -218,7 +218,7 @@ export class RequestApi extends Request {
         request: reqString,
         status: 0,
         dates: this.dates,
-        type: this.type,
+        type: this.type
       },
       result,
       append
@@ -232,7 +232,7 @@ export class RequestApi extends Request {
     if (this.cache) {
       this.cache = {
         hash: this.getCacheHash(),
-        data: Object.assign({}, response),
+        data: Object.assign({}, response)
       };
     }
   }

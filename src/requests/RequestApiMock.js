@@ -42,7 +42,7 @@ export class RequestApiMock extends Request {
         msg: '',
         object: this.results,
         status: 0,
-        timestamp: Date.now(),
+        timestamp: Date.now()
       };
       setTimeout(() => {
         resolve(this.processResponse(append, result));
@@ -75,7 +75,7 @@ export class RequestApiMock extends Request {
         status: 0,
         cid: null,
         object: [result],
-        success: true,
+        success: true
       };
     }
     const reqString = this.toString();
@@ -83,7 +83,7 @@ export class RequestApiMock extends Request {
       request: reqString,
       status: 0,
       dates: this.dates,
-      type: this.type,
+      type: this.type
     });
     return Promise.resolve(fullResponse);
   }

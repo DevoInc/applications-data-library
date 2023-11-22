@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.5
+
+Update browser-sdk. Also solves vuln [SNYK-JS-CRYPTOJS-6028119] without overrides
+
 ## 2.0.4
 
 Solve [SNYK-JS-CRYPTOJS-6028119](https://github.com/DevoInc/applications-builder/commit/f548ae561c1f0617b3e82880334834ec0a9c891f) vulnerability

@@ -13,6 +13,7 @@ export default function dataConversor(response) {
   // Serrea responses don't come with a success field
   if(response.type === dataConversor.TYPE_JSON  ||
       response.type === dataConversor.TYPE_JSON_COMPACT ||
+      response.type === dataConversor.TYPE_JSON_SIMPLE_COMPACT ||
       response.type === dataConversor.TYPE_CSV) {
     response.success = true;
   }
@@ -48,7 +49,8 @@ function check(response) {
  */
 function checkData(data, type) {
   // Serrea responses don't have an array but an object
-  if(type === dataConversor.TYPE_JSON_COMPACT) {
+  if(type === dataConversor.TYPE_JSON_COMPACT ||
+    type === dataConversor.TYPE_JSON_SIMPLE_COMPACT) {
     return !(!data);
   } else {
     return !(!data || !Array.isArray(data) || data.length === 0);
@@ -68,17 +70,19 @@ function getGenericData(response) {
     status: 'status' in response && !!response.status ? response.status : null,
     msg: 'msg' in response && !!response.msg ? response.msg : null,
     dates: response.dates
-  }
+  };
 }
 
 dataConversor.TYPE_JSON_COMPACT = 'json/compact';
 dataConversor.TYPE_JSON = 'json';
 dataConversor.TYPE_CSV = 'csv';
 dataConversor.TYPE_NONE = 'none';
+dataConversor.TYPE_JSON_SIMPLE_COMPACT = 'json/simple/compact';
 
 dataConversor.RESPONSE_TYPE = {
   'json': fromJson,
   'json/compact': fromJsonCompact,
+  'json/simple/compact': fromJsonSimpleCompact,
   'csv': fromCsv,
   'none': fromNone
 };
@@ -163,6 +167,20 @@ function fromJsonCompact(data) {
   };
 }
 
+function fromJsonSimpleCompact(data) {
+  // Transform the Serrea key format to the Vappulea one
+  let key_entries = Object.entries(data.m);
+  let keys = Array(key_entries.length);
+
+  for(let [key, body] of key_entries) {
+    keys[key] = {name: body.name, type: body.type};
+  }
+  return {
+    keys: keys,
+    dataMatrix: data.d
+  };
+}
+
 /**
  * Parse data from Serrea json compact format
  * {
@@ -184,7 +202,7 @@ function fromCsv (data) {
   return {
     keys: keys.map(createKey),
     dataMatrix
-  }
+  };
 }
 
 

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.6
+
+Fixes related with browser-sdk update
+
 ## 2.0.5
 
 Update browser-sdk. Also solves vuln [SNYK-JS-CRYPTOJS-6028119] without overrides

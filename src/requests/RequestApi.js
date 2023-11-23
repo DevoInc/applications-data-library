@@ -80,6 +80,8 @@ export class RequestApi extends Request {
               timestamp: moment().valueOf(),
               dateFrom: this.dates.from,
               dateTo: this.dates.to,
+              // To call browser-sdk stream the format must be always this
+              // Later required transformations are done to adapt to input format
               format: 'json/simple/compact',
               limit: this.limit ? this.limit : null,
               ipAsString: this.ipAsString || false

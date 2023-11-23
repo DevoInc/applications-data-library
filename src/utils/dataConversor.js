@@ -160,7 +160,7 @@ function fromJsonCompact(data) {
 
   for(let index in key_entries) {
     const [key, body] = key_entries[index];
-    keys[index] = {name: key, type: body.type};
+    keys[index] = {name: body.name || key, type: body.type};
   }
   return {
     keys: keys,

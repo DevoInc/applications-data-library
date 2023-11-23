@@ -125,6 +125,13 @@ export class RequestApi extends Request {
                         });
                       return jsonEvent;
                     });
+                } else if (this.type === 'csv') {
+                  const metadataCsv = {};
+                  this._currentReq[hash].object.m.forEach(
+                    (metadata) => {
+                      metadataCsv[metadata.name] = metadata;
+                    });
+                  this._currentReq[hash].object.m = metadataCsv;
                 } else {
                   this._currentReq[hash].object.d = this._currentReq[
                     hash
@@ -211,6 +218,15 @@ export class RequestApi extends Request {
   }
 
   processResponse(append, result) {
+    if (this.type === 'csv') {
+      result = {
+        msg: '',
+        status: 0,
+        cid: null,
+        object: [result],
+        success: true
+      };
+    }
     const reqString = this.toString();
     const fullResponse = Object.assign(
       {

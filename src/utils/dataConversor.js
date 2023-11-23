@@ -159,7 +159,7 @@ function fromJsonCompact(data) {
   let keys = Array(key_entries.length);
 
   for(let [key, body] of key_entries) {
-    keys[body.index] = {name: key, type: body.type};
+    keys[key] = {name: body.name, type: body.type};
   }
   return {
     keys: keys,
@@ -168,17 +168,7 @@ function fromJsonCompact(data) {
 }
 
 function fromJsonSimpleCompact(data) {
-  // Transform the Serrea key format to the Vappulea one
-  let key_entries = Object.entries(data.m);
-  let keys = Array(key_entries.length);
-
-  for(let [key, body] of key_entries) {
-    keys[key] = {name: body.name, type: body.type};
-  }
-  return {
-    keys: keys,
-    dataMatrix: data.d
-  };
+  return fromJsonCompact(data);
 }
 
 /**

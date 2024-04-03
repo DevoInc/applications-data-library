@@ -11,7 +11,7 @@ import { client } from '@devoinc/browser-sdk';
 export class RequestApi extends Request {
   constructor(options = {}) {
     super(options);
-    this.type = 'json/simple/compact';
+    this.type = options.format || 'json/compact';
     this._currentReq = {};
     // Check dates
     let now = Date.now();
@@ -80,7 +80,9 @@ export class RequestApi extends Request {
               timestamp: moment().valueOf(),
               dateFrom: this.dates.from,
               dateTo: this.dates.to,
-              format: this.type,
+              // To call browser-sdk stream the format must be always this
+              // Later required transformations are done to adapt to input format
+              format: 'json/simple/compact',
               limit: this.limit ? this.limit : null,
               ipAsString: this.ipAsString || false
             },
@@ -115,10 +117,28 @@ export class RequestApi extends Request {
               },
               done: () => {
                 if (append.id) console.log(append.id);
-  
-                this._currentReq[hash].object.d = this._currentReq[
-                  hash
-                ].object.d.map((e) => Object.values(e));
+                if (this.type === 'json') {
+                  this._currentReq[hash].object =
+                    this._currentReq[hash].object.d.map(event => {
+                      const jsonEvent = {};
+                      this._currentReq[hash].object.m.forEach(
+                        (metadata, index) => {
+                          jsonEvent[metadata.name] = event[index];
+                        });
+                      return jsonEvent;
+                    });
+                } else if (this.type === 'csv') {
+                  const metadataCsv = {};
+                  this._currentReq[hash].object.m.forEach(
+                    (metadata) => {
+                      metadataCsv[metadata.name] = metadata;
+                    });
+                  this._currentReq[hash].object.m = metadataCsv;
+                } else {
+                  this._currentReq[hash].object.d = this._currentReq[
+                    hash
+                  ].object.d.map((e) => Object.values(e));
+                }
                 
                 let response = this.processResponse(
                   append,
@@ -200,6 +220,15 @@ export class RequestApi extends Request {
   }
 
   processResponse(append, result) {
+    if (this.type === 'csv') {
+      result = {
+        msg: '',
+        status: 0,
+        cid: null,
+        object: [result],
+        success: true
+      };
+    }
     const reqString = this.toString();
     const fullResponse = Object.assign(
       {

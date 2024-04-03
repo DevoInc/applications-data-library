@@ -47,22 +47,22 @@ class Duration {
 
 let types = {
   Bool: {
-    rep(x) {
+    human(x) {
       return (x == null) ? 'null' : x.toString();
     }
   },
   Int: {
-    rep(x) {
+    human(x) {
       return (x == null) ? 'null' : x.toString();
     }
   },
   Float: {
-    rep(x) {
+    human(x) {
       return (x == null) ? 'null' : x.toString();
     }
   },
   Timestamp: {
-    rep(x) {
+    human(x) {
       /* ISO 8601 format in local time (without timezone information) */
       if (x == null) return 'null';
       function pad(n) {
@@ -84,13 +84,13 @@ let types = {
     }
   },
   Duration: {
-    rep(x) {
+    human(x) {
       return (x == null) ? 'null' :
         (x >= 0) ? Duration.str(x) : '-' + Duration.str((-x));
     }
   },
   Ip: {
-    rep: function(ip) {
+    human: function(ip) {
       if (ip == null) return 'null';
       ip = ip & 0xFFFFFFFF;
       var str = (((ip >>> 24) & 0xFF)
@@ -101,52 +101,52 @@ let types = {
     }
   },
   Str: {
-    rep(x) {
+    human(x) {
       return (x == null) ? 'null' : x.toString();
     }
   },
   DC: {
-    rep(x) {
+    human(x) {
       return (x == null) ? 'null' : x.toString();
     }
   },
   SetName: {
-    rep(x) {
+    human(x) {
       return x.toString();
     }
   },
   BoxarInt1: {
-    rep(x) {
-      return (x == null) ? 'null' : x.rep();
+    human(x) {
+      return (x == null) ? 'null' : x.human();
     }
   },
   Image: {
-    rep(x) {
+    human(x) {
       return (x == null) ? 'null' : x;
     }
   },
   GeoCoord: {
-    rep(x) {
-      return (x === null) ? 'null' : x.rep();
+    human(x) {
+      return (x === null) ? 'null' : x.human();
     }
   },
   Mac: {
-    rep(x) {
+    human(x) {
       return (x === null) ? 'null' : x;
     }
   },
   Packet: {
-    rep(x) {
+    human(x) {
       return (x === null) ? 'null' : '[' + x + ']';
     }
   },
   ArrayInt: {
-    rep(x) {
+    human(x) {
       return (x === null) ? 'null' : '[' + x + ']';
     }
   },
   ArrayFloat: {
-    rep(x) {
+    human(x) {
       return (x === null) ? 'null' : '[' + x + ']';
     }
   }

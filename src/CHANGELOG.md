@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.7
+
+Changes in graph widget to adapt to the last version of the widget
+
 ## 2.0.6
 
 Fixes related with browser-sdk update
